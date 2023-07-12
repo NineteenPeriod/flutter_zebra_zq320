@@ -22,21 +22,32 @@ class _HomePageState extends State<HomePage> {
 
   List<int> list = [-99, -75, -50, -25, 0, 25, 50, 75, 100, 125, 150, 175, 200];
 
-  EnumMediaType _mediaType = EnumMediaType.Label;
+  EnumMediaType _mediaType = EnumMediaType.Journal;
 
   String template = """
     ^XA
-    ^LL640
+    ^FX impresion invertida.
+    ^POI
+    ^FX LONGITUD DE 4CM
+    ^LL600
 
     ^FX Seccion principal con logos? y con titulo.
     ^CF0,30
 
-    ^FO50,50^FDPrueba de Infraccion^FS
-    ^CF0,15
-    ^FO50,115^FD1000 Shipping Lane^FS
-    ^FO50,135^FDShelbyville TN 38102^FS
-    ^FO50,155^FDUnited States (USA)^FS
-    ^FO50,200^GB540,3,3^FS
+    ^FO50,50^FDBOLETA DE INFRACCION^FS
+    ^CF0,20
+    ^FO50,115^FDFecha de infraccion: 2023-06-15 a las 14:50:24^FS
+    ^FO50,135^FDPlaca: PRUEBA^FS
+    ^FO50,155^FDNumero de serie: SERIE420^FS
+    ^FO50,175^FDTarjeta de circulacion: TARJETADECIRCULACION^FS
+    ^FO50,200^GB500,3,3^FS
+    ^FO50,225^FDDias de sancion: 5^FS
+    ^FO50,245^FDPuntos de licencia: 1^FS
+    ^FO50,270^GB500,3,3^FS
+    
+    ^FO250,300^
+    ^BQN,2,6,H,7
+    ^FDHM,Ahttp://estrados.cdmx.gob.mx^FS
 
     ^XZ
   """;
@@ -98,6 +109,13 @@ class _HomePageState extends State<HomePage> {
                   backgroundColor: Colors.greenAccent),
               onPressed: () => calibratePrinter(),
               child: const Text('CALIBRATE'),
+            ),
+            ElevatedButton(
+              style: OutlinedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.pinkAccent),
+              onPressed: () => rotateZpl(),
+              child: const Text('ROTAR zpl'),
             ),
             DropdownButton<int>(
               value: _darkness,
@@ -270,5 +288,10 @@ class _HomePageState extends State<HomePage> {
   void _printTest() {
     print(template);
     zebraPrinter.print(template);
+  }
+
+  void rotateZpl() {
+    print("ROTATE");
+    zebraPrinter.rotate();
   }
 }
