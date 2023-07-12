@@ -1,0 +1,43 @@
+ZQ320
+
+ANCHO DEL PAPEL 3 1/8 INCHES O 8CM
+
+DENSIDAD DE IMPRESION 8PPM PUNTOS POR MILIMETRO 
+Label length in inches x 203.2 (dots/inch) = y
+
+ES DECIR SI QUEREMOS UNA ETIQUETA DE 8CM DE LARGO SERIA 
+8CM = 3.14961 IN
+y = (3.14961 x 203.2)
+y = 640
+
+^LL comando para la longitud del papel, necesario cuando se usa papel sin separaciones fisicas o barras negras
+
+EJEMPLO:
+
+^XA
+^FX LONGTUD DE 8CM
+^LL640
+
+^FX Seccion principal con logos? y con titulo.
+^CF0,30
+
+^FO50,50^FDPrueba de Infraccion^FS
+^CF0,15
+^FO50,115^FD1000 Shipping Lane^FS
+^FO50,135^FDShelbyville TN 38102^FS
+^FO50,155^FDUnited States (USA)^FS
+^FO50,200^GB540,3,3^FS
+
+^XZ
+
+
+
+manual:
+https://descargas.diprotec.cl/contenido/drivers/Zebra-Impresoras/ZQ310-ZQ320/MANUAL-ZQ310-ZQ320-indoor-outdoor.pdf
+
+referencia del lenguaje ZPL:
+https://support.zebra.com/cpws/docs/zpl/zpl-zbi2-pm-en.pdf
+
+
+
+
